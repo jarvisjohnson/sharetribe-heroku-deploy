@@ -41,12 +41,17 @@
 1. Addon: MySQL
 
         heroku addon:create cleardb:ignite
+        
+    Now get your database url by running
+    
+    	heroku config:get CLEARDB_DATABASE_URL
+    
+    Copy the value of CLEARDB_DATABASE_URL returned **and CHANGE the adapter** from `mysql://` to `mysql2://` (there's a **2** there).
+    Then set the value of DATABASE_URL environment variable.
 
-    Copy the value of CLEARDB_DATABASE_URL to DATABASE_URL environment variable
+        heroku config:add DATABASE_URL='mysql2://{the rest of your connection string}'
 
-        heroku config:add DATABASE_URL=$(heroku config:get CLEARDB_DATABASE_URL)
-
-    Initialize your database
+    And initialize your database
     
         heroku run bundle exec rake db:schema:load
 			
