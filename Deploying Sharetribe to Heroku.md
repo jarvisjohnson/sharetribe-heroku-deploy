@@ -67,7 +67,7 @@
 
 	| Job                                                      | Frequency |
 	|----------------------------------------------------------|:---------:|
-	| rake ts:index                                            |   hourly  |
+	| flying-sphinx index                                      |   hourly  |
 	| rails runner "CommunityMailer.deliver_community_updates" |   Daily   |
 	| rake sharetribe:delete_expired_auth_tokens               |   Daily   |
         
