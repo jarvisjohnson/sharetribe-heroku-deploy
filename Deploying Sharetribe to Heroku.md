@@ -4,11 +4,11 @@
 
 1. Set heroku environment variables
 
-	Make sure all the options in `config.yml` are properly set then run:
+    Make sure all the options in `config.yml` are properly set then run:
 	
-		bundle exec rake heroku:config
+        bundle exec rake heroku:config
 		
-	Copy, paste and run the generated command
+	  Copy, paste and run the generated command
 	
 1. Remove postgres addon
 
