@@ -1,5 +1,19 @@
 ### Deploying to Heroku
 
+ - This will deploy a fresh install of Sharetribe onto a Heroku server.
+
+ - You will need:
+
+ * a [Heroku account](https://signup.heroku.com/)
+
+ * a [local install of Sharetribe](https://github.com/sharetribe/sharetribe/#installation) which you'll push your code from with Git
+
+ * $ - it is not free to host on Heroku, and can run up around $100/month for a basic install very quickly.  Digital Ocean can be [much cheaper](http://bitbetter.se/moving-from-heroku-to-digitalocean/), but I haven't gotten around to [switching](https://www.digitalocean.com/community/tutorials/how-to-use-mysql-with-your-ruby-on-rails-application-on-ubuntu-14-04) yet!
+
+ Notes: 
+
+ * Sharetribe uses a MySQL database.  Rails standardly uses SQlite, and Heroku expects a PostgreSQL db.  So you'll need the cleardb Heroku addon to allow use of MySQL.
+
 1. Deploy the app to heroku following heroku normal instructions (add link to  heroku help)
 
 1. Set heroku environment variables
@@ -16,16 +30,16 @@
 
 1. Addons: MemCachier (free) and SSL ($20)
   
-        heroku addon:create memcachier:dev
+        heroku addons:create memcachier:dev
         heroku addons:create ssl:endpoint
         
 1. Addons: New Relic
 
-        heroku addon:create newrelic:wayne
+        heroku addons:create newrelic:wayne
         
 	Open the addon by running
 	
-		heroku addon:open newrelic
+		heroku addons:open newrelic
  
  	Click on the top-right dropdown menu and select "Account Settings". On your account page, copy your License key.
  	Open `config/newrelic.yml` to set `license_key` variable value to your license.
@@ -40,7 +54,7 @@
 
 1. Addon: MySQL
 
-        heroku addon:create cleardb:ignite
+        heroku addons:create cleardb:ignite
         
     Now get your database url by running
     
@@ -57,11 +71,11 @@
 			
 1. Addon: Heroku scheduler
 
-        heroku addon:create scheduler:standard
+        heroku addons:create scheduler:standard
         
     Open the scheduler
     
-    	heroku addon:open scheduler
+    	heroku addons:open scheduler
 
     And add the following jobs
 
